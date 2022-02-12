@@ -7,7 +7,7 @@ export default class GamePlay extends Component {
     this.state = {
       step: 0,
       xTurn: true,
-      currentSquares:Array(9).fill(null) ,
+      currentSquares:Array(9).fill(null),
     };
   }
 
@@ -16,7 +16,6 @@ export default class GamePlay extends Component {
     squaresStyle[i].style.color = this.state.xTurn ? "blue" : "red";
   }
  getWinner(squares) {
-     console.log('squares', squares)
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -40,15 +39,11 @@ export default class GamePlay extends Component {
 
   handleClick(i) {
     const squares =  this.state.currentSquares;
-    console.log('step', this.state.step)
-    console.log('this.state.currentSquares.squares.lenght', this.state.currentSquares.length)
-    
     const winner = this.getWinner(squares);
     if (winner || squares[i]) {
       return;
     }
     squares[i] = this.state.xTurn ? "X" : "O";
-    console.log('squares', squares)
     this.styleSquare(i);
     this.setState({
       currentSquares: squares,
