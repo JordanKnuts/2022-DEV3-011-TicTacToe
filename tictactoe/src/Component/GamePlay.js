@@ -10,9 +10,35 @@ export default class GamePlay extends Component {
         currentSquares:Array(9).fill(null) ,
     };
   }
+  getWinner(squares) {
+    console.log('squares', squares)
+   const lines = [
+     [0, 1, 2],
+     [3, 4, 5],
+     [6, 7, 8],
+     [0, 3, 6],
+     [1, 4, 7],
+     [2, 5, 8],
+     [0, 4, 8],
+     [2, 4, 6],
+   ];
+ 
+   for (let i = 0; i < lines.length; i++) {
+     const [a, b, c] = lines[i];
+     if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
+       return squares[a];
+     }
+   }
+ 
+   return null;
+ }
 
   handleClick(i) {
     const squares =  this.state.currentSquares;
+    const winner = this.getWinner(squares);
+    if (winner||squares[i]) {
+        return;
+      }  
     squares[i] = this.state.xTurn ? "X" : "O";
     this.setState({
       currentSquares: squares,
@@ -22,11 +48,14 @@ export default class GamePlay extends Component {
   }
 
   render() {
-
+    const winner = this.getWinner(this.state.currentSquares)
 
     return (
       <div className="game">
         <div className="game-board">
+           {winner && (
+               <div>{'The winner is '+winner}</div>)
+           } 
           <GameBoard
             onClick={(i) => this.handleClick(i)}
             squares={this.state.currentSquares}
