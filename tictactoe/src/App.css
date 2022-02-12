@@ -1,31 +1,44 @@
 .app {
-  position: fixed;
-  overflow: auto;
-  height: 100%;
-  width: 100%;
-}
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 50px;
-  font-weight: bold;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 80px;
-  line-height: 80px;
-  height: 80px;
-  text-decoration: none;
-}
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+  }
+  .square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 50px;
+    font-weight: bold;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 80px;
+    line-height: 80px;
+    height: 80px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .game {
+    display: flex;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
 
-
-.game {
-  display: flex;
-  margin: auto;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
+  .game-info {
+    margin-left: 20px;
+  }
+  .status {
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bolder;
+  }
+  .startButton{
+      text-align: center;
+      margin-bottom: 10px;
+  }
+  
